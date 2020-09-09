@@ -42,13 +42,19 @@ class UI {
             <td><a href="#" class= " btn btn-danger btn-sm delete">X </a> </td>
             `
         listview.appendChild(row);
-    }
+    };
 
     static clearFields() {
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
         document.querySelector('#isbn').value = '';
-    }
+    };
+
+    static deleteBook(el) {
+        if (el.classList.contains('delete')) {
+            el.parentElement.parentElement.remove();
+        }
+    };
 
 }
 
@@ -84,3 +90,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
 
 // Event-3 : Delete the book
+
+document.querySelector('#book-list').addEventListener('click', (e) => {
+    UI.deleteBook(e.target)
+
+});
