@@ -75,16 +75,21 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     const author = document.querySelector('#author').value;
     const isbn = document.querySelector('#isbn').value;
 
-    // Instanciate the book 
-    const book = new Book(title, author, isbn);
+    // Validation 
+    if (title === '' || author === '' || isbn === '') {
+        alert('Please Fill-up All the Fields')
+    } else {
 
+        // Instanciate the book 
+        const book = new Book(title, author, isbn);
 
-    // Add book to UI 
-    UI.addBookToList(book);
+        // Add book to UI 
+        UI.addBookToList(book);
 
-    // Clear Fields
-    UI.clearFields();
+        // Clear Fields
+        UI.clearFields();
 
+    }
 });
 
 
